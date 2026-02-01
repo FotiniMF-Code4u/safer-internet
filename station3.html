@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="el">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Σταθμός 3 – Σύλλογος</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(#ffe0b2,#fff);}
+.container{margin:20px;padding:20px;background:rgba(255,255,255,.95);border-radius:18px;}
+h1{text-align:center;color:#ef6c00}
+.snowflake{position:fixed;top:-10px;color:white;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
+</style></head>
+<body>
+<div class="container"><h1>❄️ Σταθμός 3: Σύλλογος ❄️</h1><div id="text"></div></div>
+<script>
+const text=`Συμβουλές ασφάλειας:
+Μην μοιράζεσαι προσωπικά στοιχεία.
+Μην μιλάς με αγνώστους.
+Χρησιμοποίησε ισχυρούς κωδικούς.
+Προστάτευε τον υπολογιστή σου.
+
+Αν υποψιαστείς κάτι παράνομο:
+HotLine 1480
+Αστυνομία Κύπρου 22808200
+Γραμμή Πολίτη 1460
+
+📸 Φωτογράφισε την αφίσα
+και πήγαινε στον τελευταίο σταθμό!`;
+let i=0;
+function typeWriter(){
+ if(i<text.length){
+  document.getElementById("text").innerHTML+=text.charAt(i)==="\n"?"<br><br>":text.charAt(i);
+  i++; setTimeout(typeWriter,25);
+ }}
+typeWriter();
+for(let s=0;s<30;s++){
+ let snow=document.createElement("div");
+ snow.className="snowflake";
+ snow.style.left=Math.random()*100+"vw";
+ snow.style.animationDuration=3+Math.random()*6+"s";
+ snow.innerHTML="❄";
+ document.body.appendChild(snow);
+}
+</script>
+</body>
+</html>

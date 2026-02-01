@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Κυνήγι Γνώσης – Εισαγωγή</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(#bbdefb,#fff);}
+.container{margin:20px;padding:20px;background:rgba(255,255,255,.95);border-radius:18px;}
+h1{text-align:center;color:#1565c0}
+p{font-size:16px;line-height:1.7}
+.snowflake{position:fixed;top:-10px;color:white;animation:fall linear infinite}
+@keyframes fall{to{transform:translateY(110vh)}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>❄️ Ασφάλεια στο Διαδίκτυο ❄️</h1>
+<div id="text"></div>
+</div>
+<script>
+const text=`Η μη συνειδητοποιημένη χρήση του διαδικτύου μπορεί να έχει δυσμενείς επιπτώσεις όπως:
+Βλάβες στον ηλεκτρονικό σας υπολογιστή, υποκλοπή προσωπικών πληροφοριών,
+εκφοβισμός (cyber bullying) και εκμετάλλευση από αγνώστους,
+ανεπιθύμητη αλληλογραφία (spam) κτλ.
+
+Ήρθε η στιγμή να ενημερωθείς για όλα αυτά!
+Φτιάξαμε ένα παιχνίδι για εσένα.
+Θα σταματήσεις σε τέσσερις σταθμούς.
+Σε κάθε σταθμό θα μαθαίνεις και κάτι νέο!
+
+Όταν ολοκληρώσεις αυτό το Ταξίδι της Γνώσης
+μια μικρή επιβράβευση θα σε περιμένει.
+
+Μαζί για ένα καλύτερο διαδίκτυο
+https://www.saferinternetday.org
+
+Ξεκινάμε!
+Πρώτος σταθμός: Καντίνα
+
+Γρίφος:
+Με βρίσκεις στο διάλειμμα,
+μυρίζω λιχουδιές και ακούω γέλια.
+Δεν είμαι τάξη ούτε αυλή…
+πού πρέπει να πας;`;
+let i=0;
+function typeWriter(){
+ if(i<text.length){
+  document.getElementById("text").innerHTML+=text.charAt(i)==="\n"?"<br><br>":text.charAt(i);
+  i++; setTimeout(typeWriter,25);
+ }}
+typeWriter();
+for(let s=0;s<30;s++){
+ let snow=document.createElement("div");
+ snow.className="snowflake";
+ snow.style.left=Math.random()*100+"vw";
+ snow.style.animationDuration=3+Math.random()*6+"s";
+ snow.innerHTML="❄";
+ document.body.appendChild(snow);
+}
+</script>
+</body>
+</html>
